@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PINGAS CLICKER</title>
+    <link rel="stylesheet" href="cookieclicker.css" />
+    <script src="cookieclicker.js" defer></script>
+  </head>
+
+  <body>
+    <audio id="bg-music" src="bgMusic.mp3"></audio>
+    <header>
+      <h1>Welcome to Pingas Clicker</h1>
+    </header>
+    </div>
+    <div id="robotnik">
+      <h2><strong>Pingas Counter:</strong></h2>
+      <span id="pingas-counter" >0</span>
+      <h3>Pingas Per Second:</h3>
+      <span id="pps">0</span>
+      <br/>
+      <button class="spin" id="morePingas" type="button" onclick="incrementCounter()"><img src="pingashead.png"></button>
+    </div>
+    <table>
+      <tr>
+        <thead>
+          <th scope="col"></th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Cost</th>
+          <th scope="col">Purchase</th>
+          <th scope="col">Quantity</th>
+        </thead>
+      </tr>
+      <tbody>
+        <tr>
+          <td><img src="pingasmaker.png"></td>
+          <td>Pingas Maker</td>
+          <td>A small-sized warehouse that increases your PPS by 0.2!</td>
+          <td>50 P</td>
+          <td><button onclick="purchaseBuilding('maker')">Purchase</button></td>
+          <td id="pingasMakerCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="pingasfactory.png"></td>
+          <td>Pingas Factory</td>
+          <td>A factory built for Pingas production that inncreases your PPS by 0.5!</td>
+          <td>150 P</td>
+          <td><button onclick="purchaseBuilding('factory')">Purchase</button></td>
+          <td id="pingasFactoryCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="pingasasylum.png"></td>
+          <td>Mental Pingsylum</td>
+          <td>An asylum with a workforce of 1000 psychopaths that increases your PPS by 1!</td>
+          <td>250 P</td>
+          <td><button onclick="purchaseBuilding('asylum')">Purchase</button></td>
+          <td id="pingasAsylumCounter">0</td>
+        </tr> 
+        <tr>
+          <td><img src="kirpingas.png"></td>
+          <td>Kirpingas</td>
+          <td>A tiny friend from a land of dreams who increases your PPS by 1.7!</td>
+          <td>325 P</td>
+          <td><button onclick="purchaseBuilding('kirpingas')">Purchase</button></td>
+          <td id="kirpingasCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="enchantmaker.png"></td>
+          <td>Maker Enchant</td>
+          <td>One-time purchase boon that permanently increases your Pingas Makers' PPS by 5%!</td>
+          <td>500 P</td>
+          <td><button onclick="purchaseEnchant('makerDoubler', 'maker', this, 1.05)">Purchase</button></td>
+          <td id="pingasMakerEnchantCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="enchantfactory.png"></td>
+          <td>Factory Enchant</td>
+          <td>One-time purchase boon that permanently increases your Pingas Factories' PPS by 10%!</td>
+          <td>700 P</td>
+          <td><button onclick="purchaseEnchant('factoryDoubler', 'factory', this, 1.1)">Purchase</button></td>
+          <td id="pingasFactoryEnchantCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="enchantasylum.png"></td>
+          <td>Pingsylum Enchant</td>
+          <td>One-time purchase boon that permanently increases your Mental Pingsylums' PPS by 15%!</td>
+          <td>900 P</td>
+          <td><button onclick="purchaseEnchant('asylumDoubler', 'asylum', this, 1.15)">Purchase</button></td>
+          <td id="pingasAsylumEnchantCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="pingasportal.png"></td>
+          <td>Pingas Portal</td>
+          <td>A mysterious portal to a Pingas-dominated realm that increases your PPS by 3!</td>
+          <td>1200 P</td>
+          <td><button onclick="purchaseBuilding('portal')">Purchase</button></td>
+          <td id="pingasPortalCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="pingasberg.png"></td>
+          <td>Pingasberg</td>
+          <td>A shady drug dealer who increases your PPS by 5!</td>
+          <td>2300 P</td>
+          <td><button onclick="purchaseBuilding('pingasberg')">Purchase</button></td>
+          <td id="pingasbergCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="mtpingas.png"></td>
+          <td>Mt. Pingas</td>
+          <td>A Pingas-filled mountain with a backstory lost to time that increases your PPS by 10!</td>
+          <td>5000 P</td>
+          <td><button onclick="purchaseBuilding('mtpingas')">Purchase</button></td>
+          <td id="mtpingasCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="enchantportal.png"></td>
+          <td>Portal Enchant</td>
+          <td>One-time purchase boon that permanently increases your Pingas Portals' PPS by 33%!</td>
+          <td>6666 P</td>
+          <td><button onclick="purchaseEnchant('portalDoubler', 'portal', this, 1.33)">Purchase</button></td>
+          <td id="pingasPortalEnchantCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="enchantmtpingas.png"></td>
+          <td>Mt. Pingas Enchant</td>
+          <td>One-time purchase boon that permanently increases your Mt. Pingases' PPS by 40%!</td>
+          <td>10000 P</td>
+          <td><button onclick="purchaseEnchant('mtpingasDoubler', 'mtpingas', this, 1.40)">Purchase</button></td>
+          <td id="mtpingasEnchantCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="pingasship.png"></td>
+          <td>Pingas Ship</td>
+          <td>One-time purchase boon that grants you access to otherworldly Pingas producers!</td>
+          <td>12500 P</td>
+          <td> <button onclick="purchaseUnlock('pingasship', this, 'aliens')">Purchase</button></td>
+          <td id="pingasshipUnlockCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="pingalien.png"></td>
+          <td>Pingalien</td>
+          <td>A Pingas-shaped alien from Plutongas that increases your PPS by 100!</td>
+          <td>15000 P</td>
+          <td><button class="aliens" disabled onclick="purchaseBuilding('pingalien')">Purchase</button></td>
+          <td id="pingalienCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="pingtsunemiku.png"></td>
+          <td>Pingtsune Miku</td>
+          <td>A Pingas-themed, otherworldly popstar who increases your PPS by 123!</td>
+          <td>17500 P</td>
+          <td> <button class="aliens" disabled onclick="purchaseBuilding('pingtsunemiku')">Purchase</button></td>
+          <td id="pingtsunemikuCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="enchantpingalien.png"></td>
+          <td>Pingalien Enchant</td>
+          <td>One-time purchase boon that permanently increases your Pingaliens' PPS by 30%!</td>
+          <td>20000 P</td>
+          <td> <button class="aliens" disabled onclick="purchaseEnchant('pingalienDoubler', 'pingalien', this, 1.3)">Purchase</button></td>
+          <td id="pingalienEnchantCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="pingasstation.png"></td>
+          <td>Pingas Station</td>
+          <td>A Pingas refueling station that increases your PPS by 200!</td>
+          <td>26000 P</td>
+          <td><button class="aliens" disabled onclick="purchaseBuilding('pingasstation')">Purchase</button></td>
+          <td id="pingasstationCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="pingasmeteorite.png"></td>
+          <td>Pingas Meteorite</td>
+          <td>A meteorite chock-full of Pingas that increases your PPS by 350!</td>
+          <td>37000 P</td>
+          <td><button class="aliens" disabled onclick="purchaseBuilding('pingasmeteorite')">Purchase</button></td>
+          <td id="pingasmeteoriteCounter">0</td>
+        </tr>
+        <tr>
+          <td><img src="pingalienprime.png"></td>
+          <td>Pingalien Prime</td>
+          <td>An augmented, predatory variant of the Pingalien that increases your PPS by 500!</td>
+          <td>50000 P</td>
+          <td><button class="aliens" disabled onclick="purchaseBuilding('pingalienprime')">Purchase</button></td>
+          <td id="pingalienprimeCounter">0</td>
+          <tr>
+            <td><img src="enchantstation.png"></td>
+            <td>Station Enchant</td>
+            <td>One-time purchase boon that permanently increases your Pingas Stations' PPS by 40%!</td>
+            <td>65000 P</td>
+            <td> <button class="aliens" disabled onclick="purchaseEnchant('stationDoubler', 'pingasstation', this, 1.4)">Purchase</button></td>
+            <td id="stationEnchantCounter">0</td>
+          </tr>
+          <tr>
+            <td><img src="pingaskey.png"></td>
+            <td>Key to Pingas</td>
+            <td>One-time purchase boon that makes you unlock your true potential!</td>
+            <td>90000 P</td>
+            <td> <button onclick="purchaseUnlock('pingaskey', this, 'endgame')">Purchase</button></td>
+            <td id="pingaskeyUnlockCounter">0</td>
+          </tr>
+          <tr>
+            <td><img src="pingasking.png"></td>
+            <td>King PiPinGas</td>
+            <td>A powerful monarch from a land of dreams who increases your PPS by 1000!</td>
+            <td>100000 P</td>
+            <td><button class="endgame" disabled onclick="purchaseBuilding('pingasking')">Purchase</button></td>
+            <td id="pingaskingCounter">0</td>
+          </tr>
+          <tr>
+            <td><img src="pingascity.png"></td>
+            <td>Pingas City</td>
+            <td>An entire city dedicated to creating Pingas that increases your PPS by 1234!</td>
+            <td>130000 P</td>
+            <td><button class="endgame" disabled onclick="purchaseBuilding('pingascity')">Purchase</button></td>
+            <td id="pingascityCounter">0</td>
+          </tr>
+          <tr>
+            <td><img src="pingasbrother.png"></td>
+            <td>Pingasos Hermano</td>
+            <td>A powerful cartell boss who increases your PPS by 1900!</td>
+            <td>200000 P</td>
+            <td><button class="endgame" disabled onclick="purchaseBuilding('pingasbrother')">Purchase</button></td>
+            <td id="pingasbrotherCounter">0</td>
+          </tr>
+          <tr>
+            <td><img src="enchantcity.png"></td>
+            <td>City Enchant</td>
+            <td>One-time purchase boon that permanently increases your Pingas Cities' PPS by 55%!</td>
+            <td>222222 P</td>
+            <td> <button class="endgame" disabled onclick="purchaseEnchant('cityDoubler', 'pingascity', this, 1.55)">Purchase</button></td>
+            <td id="cityEnchantCounter">0</td>
+          </tr>
+          <tr>
+            <td><img src="pingsaneteto.png"></td>
+            <td>Pingsane Teto</td>
+            <td>An augmented, upgraded version of a popstar who increases your PPS by 4500!</td>
+            <td>500000 P</td>
+            <td><button class="endgame" disabled onclick="purchaseBuilding('pingsaneteto')">Purchase</button></td>
+            <td id="pingsanetetoCounter">0</td>
+          </tr>
+          <tr>
+            <td><img src="pingastrophy.png"></td>
+            <td>Golden Pingas</td>
+            <td>An indestructible representation of the progress of Pingas that increases your PPS by 10000!</td>
+            <td>1000000 P</td>
+            <td><button class="endgame" disabled onclick="purchaseBuilding('pingastrophy')">Purchase</button></td>
+            <td id="pingastrophyCounter">0</td>
+          </tr>
+          <tr>
+            <td><img src="enchanttrophy.png"></td>
+            <td>Golden Pingas Enchant</td>
+            <td>One-time purchase boon that permanently increases your Golden Pingases' PPS by 70%!</td>
+            <td>5000000 P</td>
+            <td> <button class="endgame" disabled onclick="purchaseEnchant('trophyDoubler', 'pingastrophy', this, 1.7)">Purchase</button></td>
+            <td id="trophyEnchantCounter">0</td>
+          </tr>
+          <tr>
+            <td><img src="scholarship.png"></td>
+            <td>Scholarship</td>
+            <td>The goal of your dreams! Prove your worthiness to claim it!</td>
+            <td>10000000 P</td>
+            <td> <button class="endgame" disabled onclick="purchaseWin('scholarship')">Purchase</button></td>
+            <td id="scholarshipCounter">0</td>
+          </tr>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
